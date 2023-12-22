@@ -5,14 +5,14 @@ import ContactItem from 'components/ContactItems/ContactItem';
 import * as ContactsService from '../../redux/contacts/contactsOperations';
 
 const Contacts = () => {
-  const loadding = useSelector(getIsLoadding);
+  const loading = useSelector(getIsLoadding);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(ContactsService.fetchContacts());
   }, [dispatch]);
 
-  return <ul>{loadding ? <h3>Loading...</h3> : <ContactItem />} </ul>;
+  return <ul>{loading ? <h3>Loading...</h3> : <ContactItem />} </ul>;
 };
 
 export default Contacts;
